@@ -1,5 +1,7 @@
 "use strict"
 const container = document.querySelector('.container')
+const toasts = document.querySelector('.toasts')
+const scoreCard = document.querySelector('.score-card')
 const images = [
     '../assets/apple.jpg',
     '../assets/banana.jpg',
@@ -15,7 +17,7 @@ const images = [
     '../assets/strawberry.jpg'
 ]
 const defaultImage = '../assets/question-mark.jpg'
-
+let score = 0
 function shuffleArray(arr) {
     let usedIndexes = []
     let shuffledArray = []
@@ -44,11 +46,19 @@ shuffledImages.forEach((image, index) => {
         box.style.backgroundImage = `url(${image})`
         console.log(box.getAttribute('data-index'))
 
+
         if (flippedBoxes.length > 1) {
             console.log("if 1")
             console.log(box.style.backgroundImage)
             console.log(flippedBoxes[flippedBoxes.length - 2].style.backgroundImage)
-            if (box.style.backgroundImage !== flippedBoxes[flippedBoxes.length - 2].style.backgroundImage) {
+            if (box.getAttribute('data-index') === flippedBoxes[flippedBoxes.length - 2].getAttribute('data-index')) {
+                toastNotif("you pressed the same box twice", "error")
+                box.style.backgroundImage = `url(${defaultImage})`
+                flippedBoxes[flippedBoxes.length - 2].style.backgroundImage = `url(${defaultImage})`
+                flippedBoxes.pop()
+                flippedBoxes.pop()
+            }
+            else if (box.style.backgroundImage !== flippedBoxes[flippedBoxes.length - 2].style.backgroundImage) {
                 console.log("hello")
                 setTimeout(() => {
                     box.style.backgroundImage = `url(${defaultImage})`
@@ -57,6 +67,14 @@ shuffledImages.forEach((image, index) => {
                     flippedBoxes.pop()
                 }, 800)
             }
+
+            else if (box.style.backgroundImage === flippedBoxes[flippedBoxes.length - 2].style.backgroundImage) {
+                toastNotif("wow you got a match", "success")
+                flippedBoxes.pop()
+                flippedBoxes.pop()
+                score++
+                scoreCard.innerText = score
+            }
         }
 
     })
@@ -64,3 +82,12 @@ shuffledImages.forEach((image, index) => {
 
 
 });
+
+function toastNotif(message, state) {
+    const toast = document.createElement('div')
+    toast.innerText = message
+    toast.classList.add('toast', state)
+    toasts.appendChild(toast)
+
+    setTimeout(() => { toast.remove() }, 1000)
+}

@@ -6,14 +6,17 @@
 
 body {
     min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
+    text-align: center;
     background-color: rgb(212, 189, 212);
 }
 
 h1 {
     text-align: center;
+    margin: 2rem 0;
+}
+
+h2 {
+    margin: 2rem;
 }
 
 .container {
@@ -22,6 +25,8 @@ h1 {
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
+    justify-content: center;
+
 }
 
 .box {
@@ -30,4 +35,27 @@ h1 {
     background-position: center;
     background-size: cover;
     margin: .2em;
+}
+
+.toasts {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.toast {
+    background: white;
+    padding: .5rem 1rem;
+    border-radius: 8px;
+    margin: .5rem;
+}
+
+.error {
+    color: red;
+}
+
+.success {
+    color: green;
 }
