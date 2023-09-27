@@ -3,18 +3,18 @@ const container = document.querySelector('.container')
 const toasts = document.querySelector('.toasts')
 const scoreCard = document.querySelector('.score-card')
 const images = [
-    '../assets/apple.jpg',
-    '../assets/banana.jpg',
-    '../assets/cherry.jpg',
-    '../assets/orange.jpg',
-    '../assets/pinneaple.jpg',
-    '../assets/strawberry.jpg',
-    '../assets/apple.jpg',
-    '../assets/banana.jpg',
-    '../assets/cherry.jpg',
-    '../assets/orange.jpg',
-    '../assets/pinneaple.jpg',
-    '../assets/strawberry.jpg'
+    '../assets/apple.png',
+    '../assets/banana.png',
+    '../assets/cherry.png',
+    '../assets/orange.png',
+    '../assets/pinneaple.png',
+    '../assets/strawberry.png',
+    '../assets/apple.png',
+    '../assets/banana.png',
+    '../assets/cherry.png',
+    '../assets/orange.png',
+    '../assets/pinneaple.png',
+    '../assets/strawberry.png'
 ]
 const defaultImage = '../assets/question-mark.jpg'
 let score = 0
