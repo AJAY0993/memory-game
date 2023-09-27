@@ -4,17 +4,30 @@
     box-sizing: border-box;
 }
 
-.container {
+body {
+    min-height: 100vh;
     display: flex;
     flex-direction: column;
+    justify-content: space-around;
+    background-color: rgb(212, 189, 212);
 }
 
-.row {
+h1 {
+    text-align: center;
+}
+
+.container {
+    width: 350px;
+    max-width: 100%;
     display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .box {
     height: 100px;
     width: 100px;
-    border: 2px solid black;
+    background-position: center;
+    background-size: cover;
+    margin: .2em;
 }
